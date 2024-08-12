@@ -14,6 +14,9 @@ class OnBoardingBageView extends StatelessWidget {
     return PageView(
       controller: pageController,
       reverse: true,
+      physics: (pageController.hasClients ? pageController.page!.round() :0)==0?const CustomPageViewScrollPhysics():const NeverScrollableScrollPhysics() ,
+      
+      
       children:  [
         PageViewItem(
           isVisible:(pageController.hasClients ? pageController.page!.round() :0)==0,
@@ -56,4 +59,22 @@ class OnBoardingBageView extends StatelessWidget {
       ],
     );
   }
+}
+
+
+class CustomPageViewScrollPhysics extends ScrollPhysics {
+  const CustomPageViewScrollPhysics({ScrollPhysics? parent})
+      : super(parent: parent);
+
+  @override
+  CustomPageViewScrollPhysics applyTo(ScrollPhysics? ancestor) {
+    return CustomPageViewScrollPhysics(parent: buildParent(ancestor)!);
+  }
+
+  @override
+  SpringDescription get spring => const SpringDescription(
+        mass: 200,
+        stiffness: 200,
+        damping: 2,
+      );
 }
