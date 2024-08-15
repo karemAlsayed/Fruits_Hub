@@ -2,13 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fruit_hub/core/helper_functions/on_generate_routes.dart';
 import 'package:fruit_hub/core/services/shared_prefrencess.dart';
+import 'package:fruit_hub/core/utils/app_colors.dart';
 import 'package:fruit_hub/features/Splash/presentation/views/splash_view.dart';
+import 'package:fruit_hub/firebase_options.dart';
 import 'package:fruit_hub/generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform,
+);
   await Prefs.init();
   runApp(const FruitHub());
+}
+
+class Firebase {
+  static initializeApp({required options}) {}
 }
 
 class FruitHub extends StatelessWidget {
@@ -19,6 +28,8 @@ class FruitHub extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         fontFamily: 'Cairo',
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
+        scaffoldBackgroundColor: Colors.white
       ),
       localizationsDelegates: const [
         S.delegate,
