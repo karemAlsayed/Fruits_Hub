@@ -44,6 +44,10 @@ dependencies:
   firebase_core: ^2.27.0
   dartz: ^0.10.1
   firebase_auth: ^4.17.8
+  bloc: ^8.1.4
+  flutter_bloc: ^8.1.6
+  get_it: ^7.6.7
+  modal_progress_hud_nsn: ^0.5.1
 
 dev_dependencies:
   flutter_test:
