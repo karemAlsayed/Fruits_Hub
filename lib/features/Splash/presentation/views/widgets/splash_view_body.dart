@@ -1,5 +1,7 @@
 
 
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/constants.dart';
 import 'package:fruit_hub/core/services/shared_prefrencess.dart';
@@ -48,7 +50,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   
   void excuteNavigation() {
     bool isOnBoardingViewSeen = Prefs.getBool(kisOnBoardingViewSeen);
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 1), () {
       if (isOnBoardingViewSeen) {
   Navigator.pushReplacementNamed(context, LoginView.routeName);
 }else {

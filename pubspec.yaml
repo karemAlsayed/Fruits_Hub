@@ -40,7 +40,7 @@ dependencies:
   svg_flutter: ^0.0.1
   dots_indicator: ^3.0.0
   shared_preferences: ^2.2.3
-  intl: ^0.18.1
+  intl: 0.19.0
   firebase_core: ^2.27.0
   dartz: ^0.10.1
   firebase_auth: ^4.17.8
