@@ -15,7 +15,7 @@ class FireBaseAuthService {
   } else if (e.code == 'email-already-in-use') {
     throw CustomExeptions(message: 'البريد الإلكتروني مستخدم مسبقًا.');
   }else{
-    throw CustomExeptions(message: 'حدث خطأ ما' );
+    throw CustomExeptions(message: 'حدث خطأا ما' );
   }
 } catch (e) {
   throw CustomExeptions(message: 'حدث خطأ ما' );

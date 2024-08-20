@@ -33,8 +33,8 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                 height: 24,
               ),
               CustomTextFormField(
-                onsaved: (name) {
-                  userName = name!;
+                onsaved: (value) {
+                  userName = value!;
                 },
                 hintText: 'الإسم كاملاً',
                 textInputType: TextInputType.name,
@@ -43,8 +43,8 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                 height: 16,
               ),
               CustomTextFormField(
-                onsaved: (name) {
-                  email = name!;
+                onsaved: (value) {
+                  email = value!;
                 },
                 hintText: 'البريد الإلكتروني',
                 textInputType: TextInputType.emailAddress,
@@ -53,8 +53,8 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                 height: 16,
               ),
               CustomTextFormField(
-                onsaved: (name) {
-                  password = name!;
+                onsaved: (value) {
+                  password = value!;
                 },
                 suffix: const Icon(
                   Icons.remove_red_eye,
