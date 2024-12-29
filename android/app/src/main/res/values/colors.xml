@@ -1,0 +1,13 @@
+<resources>
+    <!-- Add your app's primary color -->
+    <color name="primary_color">#6200EE</color>
+    
+    <!-- Add your app's primary dark color -->
+    <color name="primary_dark_color">#3700B3</color>
+    
+    <!-- Add your app's accent color -->
+    <color name="accent_color">#03DAC6</color>
+    
+    <!-- Notification color used in AndroidManifest.xml -->
+    <color name="notification_color">#FF5722</color>
+</resources>
