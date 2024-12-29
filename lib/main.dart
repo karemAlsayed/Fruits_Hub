@@ -8,24 +8,22 @@ import 'package:fruit_hub/core/services/shared_prefrencess.dart';
 import 'package:fruit_hub/core/utils/app_colors.dart';
 import 'package:fruit_hub/features/Splash/presentation/views/splash_view.dart';
 import 'package:fruit_hub/firebase_options.dart';
-
+import 'package:firebase_core/firebase_core.dart';
 import 'package:fruit_hub/generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = CustomBlocObserver();
+  
+  // Properly initialize Firebase
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
+    options: DefaultFirebaseOptions.currentPlatform, // Using the options from firebase_options.dart
   );
+  
   await Prefs.init();
   setup();
+  
   runApp(const FruitHub());
-}
-
-class Firebase {
-  static initializeApp({required options}) {
-    
-  }
 }
 
 class FruitHub extends StatelessWidget {

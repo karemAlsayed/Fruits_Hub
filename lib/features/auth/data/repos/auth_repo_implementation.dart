@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:fruit_hub/core/errors/exceptions.dart';
 import 'package:fruit_hub/core/errors/failures.dart';
@@ -14,15 +16,31 @@ class AuthRepoImplementation extends AuthRepo {
   Future<Either<Failure, UserEntity>> createUserwithEmailAndPassword(
       String email, String password, String name) async {
     try {
-  var user = await firebaseAuthService.createUserwithEmailAndPassword(
-      email: email, password: password);
+      var user = await firebaseAuthService.createUserwithEmailAndPassword(
+          email: email, password: password);
+
+      return Right(UserModel.fromFireBaseUser(user));
+    } on CustomExeptions catch (e) {
+      return Left((ServerFailure(e.message)));
+    } catch (e) {
+      log('Exception in AuthRepoImplementation.createUserwithEmailAndPassword: ${e.toString()}');
+      return Left((ServerFailure('خطأ في تسجيل الدخول')));
+    }
+  }
+
   
-  return Right(UserModel.fromFireBaseUser(user));
-} on CustomExeptions catch (e) {
-  return Left((ServerFailure(e.message)));
-}catch (e) {
-  return Left((ServerFailure('خطأ في تسجيل الدخول' )));
-}
-    
+  @override
+  Future<Either<Failure, UserEntity>> signInwithEmailAndPassword(
+      String email, String password, ) async {
+    try {
+      var user = await firebaseAuthService.signInwithEmailAndPassword(
+          email: email, password: password);
+      return Right(UserModel.fromFireBaseUser(user));
+    } on CustomExeptions catch (e) {
+      return Left((ServerFailure(e.message)));
+    } catch (e) {
+      log('Exception in AuthRepoImplementation.signInwithEmailAndPassword: ${e.toString()}');
+      return Left((ServerFailure('خطأ في تسجيل الدخول')));
+    }
   }
 }
