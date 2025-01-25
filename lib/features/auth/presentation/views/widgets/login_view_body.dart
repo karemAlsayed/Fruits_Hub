@@ -36,7 +36,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             
             children: [
               const SizedBox(
-                height: 24,
+                height: 44,
               ),
                CustomTextFormField(
                 onsaved: (value) {
@@ -80,7 +80,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 }
               }),
               const SizedBox(
-                height: 33,
+                height: 43,
               ),
                Center(
                 child: DontHaveAccountWidget(
@@ -96,7 +96,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               ),
               const SizedBox(height: 33,),
               const OrDevider(),
-              const SizedBox(height: 16,),
+              const SizedBox(height: 50,),
               SocialLoginButton(
                 image: Assets.imagesGoogleIcon,
                 title: 'تسجيل بواسطة جوجل',
@@ -105,19 +105,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 },
               ),
               const SizedBox(height: 16,),
-              SocialLoginButton(
-                image: Assets.imagesFacebookIcon,
-                title: 'تسجيل بواسطة فيسبوك',
-                onPressed: () {
-                  context.read<SigninCubit>().signinWithFacebook();
-                },
-              ),  
-              const SizedBox(height: 16,),
-              SocialLoginButton(
-                image: Assets.imagesApplIcon,
-                title: 'تسجيل بواسطة ابل',
-                onPressed: () {},
-              ),
+              
           
 
             ],
